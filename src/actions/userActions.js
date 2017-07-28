@@ -2,27 +2,34 @@ import axios from 'axios';
 
 export function setUserName(name) {
 	
-	return {
-		type: "SET_USER_NAME",
-		payload: {name: name.name, token: name.accessToken},
+	return (dispatch) => {
+		dispatch({
+			type: "SET_USER_NAME",
+			payload: {name: name.name,
+			token: name.accessToken},
+		})
+		
+		return dispatch({
+			type: "SET_USER_NAME",
+			payload: {
+				name: "?",
+				token: "?"
+			}
+		})
+
+		
 	}
 }
 
 export function getPages(token) { 
-	return function(dispatch) {
-		let pagesArray = [];
-		axios.get(`https://graph.facebook.com/me/accounts?access_token=${token}`)
-		.then((response) => {
-
-			dispatch({type: "GET_USER_PAGES", payload: response.data.data.map((val) =>{pagesArray.push(val.name)})})
-			console.log("WS");
-			
-
-
-		})
-		.catch((error) => {console.log(error)})
-		
-
+	
+	return (dispatch) => {
+		const fetchPages = axios.get(`https://graph.facebook.com/me/accounts?access_token=${token}&fields=name,id`);
+		fetchPages.then( (response) => {
+		console.log(response.data.data);
+	})
 	}
+	
 }
 
+//axios.get(`https://graph.facebook.com/me/accounts?access_token=${token}`)

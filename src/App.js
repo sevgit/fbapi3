@@ -16,12 +16,10 @@ import Welcome from './components/Welcome/Index';
 
  class App extends Component {
 
- 
+
   render() {
 
-    if (this.props.pages.initialized === true) {
-      user.getPages();
-    }
+
     const managedPages = this.props.pages.pages.map((val, index) => {
         if (this.props.pages.initialized === true) {
         
@@ -62,12 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-    setPage: (page) => {
-      dispatch({
-        type: "SET_PAGE",
-        payload: page
-      });
-    },
+   
   };
 }
 
