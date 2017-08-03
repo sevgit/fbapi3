@@ -22,8 +22,10 @@ import Welcome from './components/Welcome/Index';
 
     const managedPages = this.props.pages.pages.map((val, index) => {
         if (this.props.pages.initialized === true) {
+       
         
-       return <PageCard key={index} likes={val.likes} name={val.name} />}
+       return <PageCard key={index} likes={val.fan_count} name={val.name}  />
+        }
        return null;
     });
 
@@ -41,7 +43,7 @@ import Welcome from './components/Welcome/Index';
         </div>
         
          {managedPages}
-         {console.log(this.props)}
+         
         
         
       </div>

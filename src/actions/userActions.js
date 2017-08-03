@@ -8,28 +8,18 @@ export function setUserName(name) {
 			payload: {name: name.name,
 			token: name.accessToken},
 		})
-		
-		return dispatch({
-			type: "SET_USER_NAME",
-			payload: {
-				name: "?",
-				token: "?"
-			}
+			axios.get(`https://graph.facebook.com/me/accounts?access_token=${name.accessToken}&fields=name,picture,fan_count,id`)
+			.then((response) => {
+			  console.log(response.data.data[0].picture.data.url)
+				dispatch({
+			type: "SET_USER_PAGES",
+			payload: response.data.data
 		})
+			})
+		 
 
 		
 	}
 }
 
-export function getPages(token) { 
-	
-	return (dispatch) => {
-		const fetchPages = axios.get(`https://graph.facebook.com/me/accounts?access_token=${token}&fields=name,id`);
-		fetchPages.then( (response) => {
-		console.log(response.data.data);
-	})
-	}
-	
-}
 
-//axios.get(`https://graph.facebook.com/me/accounts?access_token=${token}`)

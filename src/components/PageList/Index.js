@@ -8,8 +8,9 @@ const PageList = (props) => {
 
       <div>
         {
-        	props.name.map((val,index) => {
-    			<PageCard name={ val || "Punch" } likes={ props.|| 9.999} />
+          console.log(props)
+        	props.map((val,index) => {
+    			<PageCard name={ val.name || "Punch" } likes={ val.fan_count|| 9.999} />
     		})
         }
       </div>

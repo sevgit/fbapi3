@@ -15,6 +15,7 @@ const PageCard = (props) => {
         <div className="cardStats"> 
         <span className="cardLikes">
         {props.likes || 'Unfetchable'}
+        
         </span>
         </div>
       </div>
