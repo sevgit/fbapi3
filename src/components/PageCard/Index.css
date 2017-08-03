@@ -2,9 +2,9 @@
 	display: inline-flex;
 	flex-direction: column;
 	margin: 10px;
-	width: 200px;
-	height: 200px;
-	justify-content: center;
+	width: 170px;
+	height: 170px;
+	justify-content: space-between;
 	align-items: center;
 	border: 1px solid #ddd;
 
@@ -19,8 +19,8 @@
 	margin-top:10px;
 	margin-bottom:20px;
 	background-color: #ddd;
-	width: 75px;
-	height: 75px;
+	width: 50px;
+	height: 50px;
 	border: 3px solid #fff;
 	-webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,1);
 	-moz-box-shadow: 0px 0px 18px -1px rgba(0,0,0,1);
@@ -30,13 +30,23 @@
 }
 
 .cardPhoto img {
-	width: 75px;
-	height: 75px;
+	width: 50px;
+	height: 50px;
 }
 
 .cardStats {
-
+	padding:5px;
+align-self:flex-end;
+ font-size:12px;
 }
 
+.cardName {
+	max-width:150px;
+	font-size:12px;
+}
+
+.cardLikes {
+
+}
 
 

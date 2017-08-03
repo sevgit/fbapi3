@@ -16,7 +16,7 @@ export default function reducer(state={
 			
 		}
 		case "SET_USER_NAME": {
-			return {...state, fetching: false, initialized: true, user: {name: action.payload.name, token: action.payload.token} }
+			return {...state, fetching: false, initialized: false, user: {name: action.payload.name, token: action.payload.token} }
 			
 		}
 		case "SET_USER_PAGES": {

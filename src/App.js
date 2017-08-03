@@ -23,8 +23,8 @@ import Welcome from './components/Welcome/Index';
     const managedPages = this.props.pages.pages.map((val, index) => {
         if (this.props.pages.initialized === true) {
        
-        
-       return <PageCard key={index} likes={val.fan_count} name={val.name}  />
+        console.log(val.picture.data)
+       return <PageCard key={index} likes={val.fan_count} name={val.name} photo={val.picture.data.url}  />
         }
        return null;
     });
