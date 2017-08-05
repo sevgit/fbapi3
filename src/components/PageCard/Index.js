@@ -14,7 +14,7 @@ const PageCard = (props) => {
         </div>
         <div className="cardStats"> 
         <span className="cardLikes">
-        {props.likes || 'Unfetchable'}
+        {props.likes || '0'}
         
         </span>
         </div>

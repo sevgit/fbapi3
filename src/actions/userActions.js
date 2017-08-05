@@ -10,11 +10,25 @@ export function setUserName(name) {
 		})
 			axios.get(`https://graph.facebook.com/me/accounts?access_token=${name.accessToken}&fields=name,picture,fan_count,id`)
 			.then((response) => {
-			  console.log(response.data.data[0].picture.data.url)
+			   
+				//Sort by # of likes
+				const sortPages = response.data.data.sort((a,b) => {
+					return b.fan_count - a.fan_count
+				})
+
+
+
+
 				dispatch({
 			type: "SET_USER_PAGES",
-			payload: response.data.data
+			payload: sortPages
 		})
+			})
+			.catch((err) => {
+				dispatch({
+					type: "SET_USER_PAGES_ERROR",
+					payload: err,
+				})
 			})
 		 
 

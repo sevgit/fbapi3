@@ -10,48 +10,51 @@ import PageCard from './components/PageCard/Index';
 import FacebookLogin from 'react-facebook-login';
 import Welcome from './components/Welcome/Index';
 
+
 //Utils
 
 
 
- class App extends Component {
+class App extends Component {
 
 
   render() {
 
 
     const managedPages = this.props.pages.pages.map((val, index) => {
-        if (this.props.pages.initialized === true) {
-       
-        console.log(val.picture.data)
-       return <PageCard key={index} likes={val.fan_count} name={val.name} photo={val.picture.data.url}  />
-        }
-       return null;
+      if (this.props.pages.initialized === true) {
+
+
+        return <PageCard key={index} likes={val.fan_count} name={val.name} photo={val.picture.data.url}  />
+      }
+      return null;
     });
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-         <br />
-          <FacebookLogin textButton="Connect with Facebook"
-          appId="451877625189079"
-          callback={(response) => {this.props.dispatch(user.setUserName(response))}} 
-          />
-          <Welcome name={this.props.pages.user.name} />
-          <br />
-        </div>
-        
-         {managedPages}
-         
-        
-        
+    
+      <div className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <br />
+      <FacebookLogin textButton="Connect with Facebook"
+      appId="451877625189079"
+      scope="public_profile,manage_pages"
+      callback={(response) => {this.props.dispatch(user.setUserName(response))}} 
+      />
+      <Welcome name={this.props.pages.user.name} />
+      <br />
       </div>
-    );
+
+      {managedPages}
+
+
+
+      </div>
+      );
   }
 }
 
-//console.log(this.props.pages.user.name)
+
 
 const mapStateToProps = (state) => {
   return {
@@ -62,7 +65,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-   
+
   };
 }
 

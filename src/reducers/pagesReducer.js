@@ -2,7 +2,7 @@ export default function reducer(state={
 	fetching: false,
 	initialized: false,
 	user: {name: "", token: ""},
-	pages: [{name: "Punch", fan_count: 1, photo: ""},{name: "Punch2", fan_count: 2, photo: ""},{name: "Punch3", fan_count: 3, photo: ""}],
+	pages: [],
 	error: null,
 }, action) {
 
